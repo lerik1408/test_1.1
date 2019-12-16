@@ -1,0 +1,402 @@
+@import './mixins';
+@import './variables';
+
+html {
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: Gilroy, serif;
+  color: #2a3247;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+h1 {
+  font-weight: 900;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+p {
+  font-family: $font-helvetica;
+  font-weight: 300;
+}
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #23d98c;
+  border-radius: 8px;
+  border: none;
+  font-family: Gilroy;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  box-shadow: 5px 4px 6px rgba(9, 24, 56, 0.08);
+  &:hover {
+    background: #1fc880;
+    cursor: pointer;
+  }
+  &:active {
+    background: #26b579;
+  }
+  &:disabled {
+    background: #F0F3F9;
+    color: #B5C1D2;
+  }
+}
+
+button.primary-button {
+  padding-top: 0;
+}
+
+.primary-button-55px {
+  @extend .primary-button;
+  height: 55px;
+
+}
+
+.primary-button-border-55px {
+  @extend .primary-button;
+  background: none;
+  border: 1.5px solid white;
+  height: 55px;
+  padding: 0 22px;
+  &:hover{
+    background-color: white;
+    border: $dark-font;
+    color: $dark-font;
+  }
+}
+
+.primary-button-50px {
+  @extend .primary-button;
+  height: 50px;
+}
+
+.primary-input {
+  background: #ffffff;
+  border: 1px solid #e5ebf3;
+  border-radius: 8px;
+  height: 50px;
+  color: $dark-input;
+  padding-left: 22px;
+  font-size: 16px;
+  line-height: normal;
+  &:focus {
+    background-color: $bg-light;
+    outline: none;
+  }
+  &::placeholder {
+    color: rgba(62, 63, 81, 0.2);
+  }
+}
+.primary-input-55px {
+  @extend .primary-input;
+  height: 55px;
+}
+
+.primary-input-50px {
+  @extend .primary-input;
+  height: 50px;
+}
+.primary-textarea {
+  border: 1px solid #e5ebf3;
+  border-radius: 8px;
+  height: 100px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.footer-hidden-devices {
+  display: none;
+  @include for-desktop {
+    display: block;
+  }
+}
+
+.input-label {
+  .mx-datepicker {
+    width: 100%;
+  }
+  display: flex;
+  flex-direction: column;
+  label {
+    letter-spacing: 0.216667px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    order: -1;
+    margin-top: 15px;
+  }
+  input:focus ~ label {
+    color: $blue;
+    font-weight: 600;
+  }
+  input:disabled {
+    &::placeholder {
+      color: $dark-font;
+    }
+  }
+}
+.two-flex-inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  @include for-tablet {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  @include for-desktop {
+    justify-content: space-around;
+  }
+  
+}
+
+.email-date-input {
+  margin-bottom: 16px;
+  width: 100%;
+  @include for-tablet {
+    width: 246px;
+  }
+  @include for-desktop {
+    width: 290px;
+  }
+}
+
+.payment-date-input {
+  max-width: 100%;
+}
+.calendar-icon {
+  position: relative;
+  top: 15%;
+}
+.mx-datepicker-range {
+  width: 100% !important;
+  .calendar-icon {
+    position: relative;
+    top: 30%;
+    right: 20%;
+  }
+}
+
+.reports-date-input {
+  @extend .primary-input-50px;
+  border: none;
+  width: 100%;
+  min-width: 230px;
+  margin: 12px auto;
+  @include for-tablet {
+    margin: 0;
+  }
+}
+hr {
+  border-top: 1px solid $hr-color;
+}
+
+.dashboard-container {
+  padding: 0 16px;
+  margin-top: 4vh;
+  @include for-tablet {
+    padding: 0 32px;
+  }
+  @include for-desktop {
+    margin-top: 7vh;
+    margin-left: 3vw;
+    padding: 0;
+  }
+}
+
+.VueCarousel-dot-container .VueCarousel-dot {
+  border-radius: 8px !important;
+  &:focus {
+    outline: none !important
+  }
+}
+
+.step-cont {
+  margin-top: 31px;
+  h3 {
+    font-weight: 900;
+    font-size: 18px;
+  }
+  @include for-tablet {
+    background: white;
+    margin-bottom: 50px;
+    margin-top: 17px;
+    border-radius: 20px;
+    padding-top: 5vh;
+    padding-left: 3vw;
+    max-width: 1055px;
+    padding-right: 3vw;
+  }
+  @include for-desktop {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 78vw;
+    margin-bottom: 20px;
+    min-height: 72vh;
+    position: relative;
+  }
+}
+.profile-container {
+  @extend .step-cont;
+  @include for-tablet {
+    min-height: 60vh;
+  }
+  @include for-desktop {
+    @include for-desktop {
+      width: 55vw;
+      margin-left: 20px;
+      height: 84vh;
+    }
+  }
+}
+.primary-select {
+  border-radius: 8px;
+  padding-left: 15px;
+  display: block;
+  width: 230px;
+  height: 50px;
+  background: white;
+  border: none;
+  font-family: Helvetica;
+  font-size: 14px;
+  color: $dark-font;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.flex {
+  display: flex;
+}
+.nav-item {
+  color: #9eafc6;
+  font-size: 14px;
+  display: block;
+  @include for-desktop {
+    color: $dark-font;
+    margin-top: 20px;
+    margin-left: 36px;
+    min-width: 70%;
+    cursor: pointer;
+  }
+}
+
+.active {
+  border: 1px solid #e8edf5;
+  box-shadow: 0px 10px 40px rgba(22, 34, 78, 0.08);
+  border-radius: 12px;
+  color: $blue;
+  font-weight: 600;
+  background: white;
+  padding: 10px 15px;
+}
+
+.desktop-flex {
+  @include for-desktop {
+    display: flex;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.mobile-invisible {
+  display: none;
+  @include for-tablet {
+    display: block;
+  }
+}
+.only-mobile {
+  @include for-tablet {
+    display: none;
+  }
+}
+
+.payments-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+  min-height: 65vh;
+  
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  @include for-tablet {
+    background: white;
+    min-height: 59vh;
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 28px;
+  }
+
+  @include for-desktop {
+    margin-top: 0;
+    height: 82vh;
+    margin-left: 20px;
+    width: 60vw;
+  }
+  .payments-bottom-buttons {
+    margin-top: auto;
+    display:flex;
+    justify-content: space-between;
+    min-width: 90%;
+    .primary-button-55px {
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 20px;
+      @include for-tablet {
+        max-width: 206px;
+      }
+    }
+  }
+  .back.mobile-visible {
+    margin-bottom: 30px;
+  }
+}
+.inactive-route {
+  path {
+    fill: #687798;
+  }
+}
+.svg-is-gray {
+  path {
+    fill: #B2C6E1
+  }
+  circle {
+    stroke: #B2C6E1
+  }
+}
+
+.inside-section {
+  max-width: 1500px;
+  margin: 0 auto;
+}
